@@ -1,0 +1,33 @@
+.custom-modal .tingle-modal-box {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.custom-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.custom-form input,
+.custom-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.custom-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.custom-form button:hover {
+    background-color: #0056b3;
+}
