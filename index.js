@@ -37,7 +37,7 @@ export default class FeedbackModal {
                 left: 0;
                 width: 100vw;
                 height: 100vh;
-                background-color: rgba(0, 0, 0, 0.1); /* Black with 80% opacity */
+                background-color: rgba(0, 0, 0, 0.2); /* Black with 80% opacity */
                 z-index: 1000; /* Ensure it appears above other elements */
                 display: flex;
                 align-items: center;
@@ -60,8 +60,16 @@ export default class FeedbackModal {
                 font-family: 'Inter', sans-serif;
                 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
                 position: relative;
+                width: calc(100% - 20px); /* Adds a default padding */
+
             }
-            
+            @media (max-width: 768px) {
+                .feedback-modal .tingle-modal-box {
+                    width: calc(100% - 40px); /* Adds more padding for smaller screens */
+                    max-width: none; /* Remove the max-width constraint on smaller screens */
+                }
+            }
+
             /* Title and Close Button Wrapper */
             .feedback-form-header {                
                 padding-left,padding-right: 5px;    
@@ -162,6 +170,27 @@ export default class FeedbackModal {
                 margin-bottom: 10px;
                 text-align: center;
             }
+            .feedback-footer {
+                text-align: center;
+                margin-top: 20px;
+                font-size: 12px;
+                color: black; /* Black text for footer */
+                font-family: 'Inter', sans-serif;
+                background-color: #f9f9f9; /* Light gray background */
+                padding: 10px; /* Padding around the footer */
+                border-radius: 8px; /* Rounded corners */
+            }
+
+            .feedback-footer a {
+                color: black; /* Blue color for the link */
+                text-decoration: none; /* No underline */
+                font-weight: bold; /* Bold link text */
+            }
+
+            .feedback-footer a:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
+
         `;
 
         // Add Inter Font (inline font inclusion)
@@ -271,6 +300,20 @@ export default class FeedbackModal {
 
         // Append form to container
         container.appendChild(form);
+
+        // Footer
+        const footer = document.createElement('div');
+        footer.className = 'feedback-footer';
+
+        const link = document.createElement('a');
+        link.href = 'https://www.jsfeedback.com/';
+        link.target = '_blank'; // Open in a new tab
+        link.textContent = 'Powered by  jsFeedback';
+
+        footer.appendChild(link);
+
+        container.appendChild(footer);
+
 
         return container;
     }
